@@ -7,11 +7,11 @@ public class ProjectDesignPattern { // Clint Class
         ShopOwner owner = ShopOwner.Getinstanse(); // Singliton Pattern 
 
         //a) A person from china order blue medium T-shirt with bird logo 
-        TshirtDesign custumer1 = Factory.createTshirt("Medium", "china");
+        TshirtDesign custumer1 = Factory.createTshirt("Medium", "china");      
         custumer1 = new LogoFeature(new ColorFeature(custumer1, "blue"));
         System.out.println("Order1: " + custumer1.getDescription());
         owner.Ubdate("Medium");
-        // owner.dispay();
+         owner.dispay();
 
         // A person from middle east orders a red large T-shirt with Text  
         TshirtDesign custumer2 = Factory.createTshirt("Large", "middle east");
@@ -20,6 +20,14 @@ public class ProjectDesignPattern { // Clint Class
         owner.Ubdate("Large");
 
         owner.dispay();
+        
+        System.out.println("*****************");
+       TshirtDesign custumer3 = Factory.createTshirt("small", "Asia");  
+       custumer3 = new LogoFeature(new ColorFeature(new TextFeature(custumer3), "blue"));
+        System.out.println("Order2: "+custumer3.getDescription());
+        owner.Ubdate("large");
+        owner.dispay();
+        
     }
 
 }

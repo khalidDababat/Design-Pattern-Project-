@@ -13,7 +13,12 @@ public class ShopOwner implements Observer {
 
     public static ShopOwner Getinstanse() { // For Mack onlay one  Instanse 
         if (instanse == null) {
-            return new ShopOwner();
+            synchronized(ShopOwner.class){
+                if(instanse ==null){
+                 return new ShopOwner(); 
+                }
+            }
+            
         }
         return instanse;
 
